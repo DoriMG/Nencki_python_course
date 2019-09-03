@@ -15,13 +15,11 @@ X = traces
 X[X<0] = 0
 traces.shape
 
-
-Locomotion = scipy.io.loadmat([folder,'\\', 'locomotion.mat']))['loco']
+Locomotion = scipy.io.loadmat([folder,'\\', 'locomotion.mat'])['loco']
 vel = np.diff(Locomotion, axis=0)
 vel = np.insert(vel, 0, 0)
 vel[vel<-0.2/7.51] = 0
 vel[vel>0.5/7.51] = 0
-
 
 model = NMF(n_components=3, init='random', random_state=0)
 W = model.fit_transform(X)
@@ -41,12 +39,3 @@ plt.figure()
 plt.plot(H[2,:].T,)#color=colors[i] )
 plt.xlabel('Frames')
 plt.ylabel('Component 1 weight')
-
-for h in H:
-    
-
-
-
-
-
-
